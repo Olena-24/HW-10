@@ -1,0 +1,19 @@
+{% extends "quotes/base.html" %}
+
+{% block body %}
+
+<form action="{% url 'quotes:select_by_author' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label" for="author">Author</label>
+        <select class="form-select" id="author" name="author">
+            {% for author in authors %}
+            <option value="{{ author.id }}">{{ author.fullname }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+</form>
+
+{% endblock %}

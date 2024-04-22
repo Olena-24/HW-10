@@ -1,0 +1,28 @@
+{% extends "quotes/base.html" %}
+
+{% block body %}
+
+<form action="{% url 'quotes:add_author' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label" for="author_fullname">Author fullname</label>
+        <textarea class="form-control" id="author_fullname" name="author_fullname" placeholder="Enter author fullname text"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="author_born_date">Author born date</label>
+        <textarea class="form-control" id="author_born_date" name="author_born_date" placeholder="Enter author dorn date text"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="author_born_location">Author born location</label>
+        <textarea class="form-control" id="author_born_location" name="author_born_location" placeholder="Enter author born location text"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="author_description">Author description</label>
+        <textarea class="form-control" id="author_description" name="author_description" placeholder="Enter author description text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+</form>
+
+{% endblock %}
